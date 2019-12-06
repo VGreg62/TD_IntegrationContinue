@@ -23,12 +23,12 @@ pipeline {
 				echo 'Package...'
                 bat 'mvn package' 
             }
-        }
-		post{
+        }		
+    }
+	post{
 			always{
 				archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
                 junit '/**/*.xml' 
 			}
 		}
-    }
 }
