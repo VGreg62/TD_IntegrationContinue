@@ -5,18 +5,25 @@ pipeline {
         stage('Build') {
             steps {
 				echo 'Build...'
-                sh 'make' 
+                bat "mvn clean install"
+				echo 'Validate...'
+				bat "mvn validate"
+				echo 'Compile...'
+				bat "mvn compile"
                 archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
             }
         }
         stage('Test') {
             steps {
 				echo 'Test...'
-                /* `make check` returns non-zero on test failures,
-                * using `true` to allow the Pipeline to continue nonetheless
-                */
-                sh 'make check || true' 
-                junit '**/target/*.xml' 
+                bat 'mvn test'
+                junit '/**/*.xml' 
+            }
+        }
+		stage('Package') {
+            steps {
+				echo 'Package...'
+                bat 'mvn package' 
             }
         }
     }
