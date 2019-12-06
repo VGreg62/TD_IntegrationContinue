@@ -9,15 +9,13 @@ pipeline {
 				echo 'Validate...'
 				bat "mvn validate"
 				echo 'Compile...'
-				bat "mvn compile"
-                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
+				bat "mvn compile"                
             }
         }
         stage('Test') {
             steps {
 				echo 'Test...'
                 bat 'mvn test'
-                junit '/**/*.xml' 
             }
         }
 		stage('Package') {
@@ -26,5 +24,11 @@ pipeline {
                 bat 'mvn package' 
             }
         }
+		post{
+			always{
+				archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
+                junit '/**/*.xml' 
+			}
+		}
     }
 }
