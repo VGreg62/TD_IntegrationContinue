@@ -2,30 +2,20 @@ pipeline {
     agent any
 
     stages {
-        stage('Validate') {
+        stage('Build') {
             steps {
-                echo 'Validate..'
-				sh 'mvn validate'
-            }
-        }
-        stage('Compile') {
-            steps {
-                echo 'Compile..'
-				sh 'mvn compile'
+                sh 'make' 
+                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing....'
-				sh 'mvn test'
+                /* `make check` returns non-zero on test failures,
+                * using `true` to allow the Pipeline to continue nonetheless
+                */
+                sh 'make check || true' 
+                junit '**/target/*.xml' 
             }
         }
-		
-		stage('Package'){
-			steps{
-				echo 'Package....'
-				sh 'mvn package'
-			}
-		}
     }
 }
