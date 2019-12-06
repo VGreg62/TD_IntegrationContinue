@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Package') {
 			steps {
-				bat 'mvn clean install'
+				bat 'mvn clean'
 				echo 'Package...'
                 bat 'mvn package' 
             }
@@ -14,6 +14,7 @@ pipeline {
 			always{
 				archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
                 junit '/**/*.xml'
+				
 				recordIssues enabledForFailure: true, tools: [mavenConsole(), java(), javadoc()]
 				recordIssues enabledForFailure: true, tools: checkStyle()
 				recordIssues enabledForFailure: true, tools: spotBugs()
