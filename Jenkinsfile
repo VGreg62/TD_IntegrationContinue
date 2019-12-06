@@ -2,24 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
-            steps {
-				echo 'Build...'
-                bat "mvn clean install"
-				echo 'Validate...'
-				bat "mvn validate"
-				echo 'Compile...'
-				bat "mvn compile"                
-            }
-        }
-        stage('Test') {
-            steps {
-				echo 'Test...'
-                bat 'mvn test'
-            }
-        }
-		stage('Package') {
-            steps {
+        stage('Package') {
+			steps {
+				bat 'mvn clean install'
 				echo 'Package...'
                 bat 'mvn package' 
             }
@@ -28,7 +13,12 @@ pipeline {
 	post{
 			always{
 				archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
-                junit '/**/*.xml' 
+                junit '/**/*.xml'
+				recordIssues enabledForFailure: true, tools: [mavenConsole(), java(), javadoc()]
+				recordIssues enabledForFailure: true, tools: checkStyle()
+				recordIssues enabledForFailure: true, tools: spotBugs()
+				recordIssues enabledForFailure: true, tools: cpd(pattern: '**/target/cpd.xml')
+				recordIssues enabledForFailure: true, tools: pmdParser(pattern: '**/target/pmd.xml')
 			}
 		}
 }
