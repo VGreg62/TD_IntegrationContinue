@@ -8,6 +8,12 @@ pipeline {
 				echo 'Package...'
                 bat 'mvn package' 
             }
+        }
+		stage('Analyse') {
+			steps {
+				echo 'Analyse...'
+				bat 'mvn checkstyle:checkStyle'
+            }
         }		
     }
 	post{
