@@ -12,8 +12,7 @@ pipeline {
 		stage('Analyse') {
 			steps {
 				echo 'Analyse...'
-				bat 'mvn checkstyle:checkStyle'
-            }
+			}
         }		
     }
 	post{
