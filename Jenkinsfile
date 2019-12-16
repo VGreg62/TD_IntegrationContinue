@@ -20,7 +20,7 @@ pipeline {
 				archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
                 junit '/**/*.xml'
 				
-				recordIssues enabledForFailure: true, tools: [mavenConsole(), java(), javadoc()]
+				recordIssues enabledForFailure: true, tools: [mavenConsole(), java()]
 				recordIssues enabledForFailure: true, tools: checkStyle()
 				recordIssues enabledForFailure: true, tools: spotBugs()
 				recordIssues enabledForFailure: true, tools: cpd(pattern: '**/target/cpd.xml')
