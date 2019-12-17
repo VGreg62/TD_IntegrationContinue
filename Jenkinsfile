@@ -6,18 +6,18 @@ pipeline {
 			steps {
 				bat 'mvn clean'
 				echo 'Package...'
-                bat 'mvn package' 
+                bat 'mvn package'
             }
         }
 		stage('Analyse') {
 			steps {
 				echo 'Analyse...'
 			}
-        }		
+        }
     }
 	post{
 			always{
-				archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
+				archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
                 junit '/**/*.xml'
 			}
 		}
