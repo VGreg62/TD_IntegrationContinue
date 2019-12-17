@@ -19,11 +19,6 @@ pipeline {
 			always{
 				archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
                 junit '/**/*.xml'
-				
-				recordIssues enabledForFailure: true, tools: [mavenConsole(), java()]
-				recordIssues enabledForFailure: true, tools: spotBugs()
-				recordIssues enabledForFailure: true, tools: cpd(pattern: '**/target/cpd.xml')
-				recordIssues enabledForFailure: true, tools: pmdParser(pattern: '**/target/pmd.xml')
 			}
 		}
 }
