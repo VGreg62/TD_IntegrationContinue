@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Package') {
 			steps {
+			    bat 'mvn checkstyle:checkstyle'
 				bat 'mvn clean'
 				echo 'Package...'
                 bat 'mvn package' 
