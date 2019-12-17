@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="14dd1222-dd63-4a4c-bab8-5579b6fc50d0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/Jenkinsfile" afterDir="false" />
-    </list>
+    <list default="true" id="14dd1222-dd63-4a4c-bab8-5579b6fc50d0" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,8 +40,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Jenkinsfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="20" column="8" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+            <state relative-caret-position="306">
+              <caret line="18" column="372" selection-start-line="18" selection-start-column="372" selection-end-line="18" selection-end-column="372" />
             </state>
           </provider>
         </entry>
@@ -166,12 +164,12 @@
       <workItem from="1576493377941" duration="1842000" />
       <workItem from="1576568926662" duration="1624000" />
       <workItem from="1576570705171" duration="23000" />
-      <workItem from="1576572584690" duration="2775000" />
+      <workItem from="1576572584690" duration="3396000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18914000" />
+    <option name="totallyTimeSpent" value="19535000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -267,8 +265,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Jenkinsfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="20" column="8" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+        <state relative-caret-position="306">
+          <caret line="18" column="372" selection-start-line="18" selection-start-column="372" selection-end-line="18" selection-end-column="372" />
         </state>
       </provider>
     </entry>
