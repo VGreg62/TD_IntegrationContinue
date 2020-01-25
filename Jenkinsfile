@@ -12,7 +12,7 @@ pipeline {
 		stage('Analyse') {
 			steps {
 				echo 'Analyse...'
-				mvn checkstyle:checkstylegit
+				mvn checkstyle:checkstyle
 			}
         }
         stage('Publish'){
